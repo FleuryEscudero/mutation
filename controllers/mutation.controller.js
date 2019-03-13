@@ -13,19 +13,17 @@ var Utils = require('../utils/utils');
 //     });
 // };
 
-
 //funcion para salvar la cadena de ADN
-function saveMutation (req,res){ // uno 
+function saveMutation (req,res){
     var mutation = new Mutation();
     var params = req.body;
-    let message = '';
+    console.log(req.body);
     mutation.combination =params.combination;
+    console.log("saveMutation");
     console.log(mutation.combination);
-    // Recorremos el array 
-    mutation.combination.forEach(adn => {
-        // aqui validamos la cadena y guardamos el resultado en el modelo 
-        mutation.result = Utils.validateADN(adn); // si en algun momento regresa una cadena incorrecta regresara false
-    });
+
+    mutation.result = Utils.hasMutation(mutation.combination);
+
      mutation.save ((err, mutationStored)=>{
         if (err){ // VALIDACION DE ORM
             res.status(500).send({message: 'Error al guardar la cadena de ADN', error : err});
