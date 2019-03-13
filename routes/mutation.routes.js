@@ -9,8 +9,8 @@ var api = express.Router();
 api.use(cors());
 
 //api.get('/pruebas', mutationController.pruebas);
-api.get ('mutation', mutationController.getMutation);
-api.post('mutation',mutationController.saveMutation);
+api.get ('/mutation/:id?', mutationController.getMutation);
+api.post('/mutation',mutationController.saveMutation);
 
 
 module.exports = api;
