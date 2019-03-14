@@ -17,10 +17,9 @@ var Utils = require('../utils/utils');
 function saveMutation (req,res){
     var mutation = new Mutation();
     var params = req.body;
-    console.log(req.body);
+    
     mutation.combination =params.combination;
-    console.log("saveMutation");
-    console.log(mutation.combination);
+    
 
     mutation.result = Utils.hasMutation(mutation.combination);
 
@@ -32,9 +31,9 @@ function saveMutation (req,res){
                 res.status(500).send({message: 'La cadena de ADN no ha sido guardada'});
             }else{
                 if(!mutation.result) { // Validamos si la cadena contiene los caracteres correctos y regresa Forbidden
-                    res.status(403).send({message: 'la cadena tiene caracteres incorrectos o no cumple con la longitud esperada'});
+                    res.status(403).send({message: ''});
                 } else { // Regresa resultado correcto
-                    res.status(200).send({mutation: mutationStored});
+                    res.status(200).send({mutation: 'Ok'});
                 }
             }
         }
@@ -57,7 +56,9 @@ function getMutation (req,res){
 
 
 function stats (req,res){
-    
+    Mutation.count({result:true})
+
+
 }
 
 module.exports = {
