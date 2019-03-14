@@ -57,6 +57,7 @@ function getVert (matriz){
     console.log('aqui pase',vertical);
 }
 
+
 module.exports = {
     getVert,
     hasMutation,

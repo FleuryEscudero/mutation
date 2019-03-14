@@ -55,8 +55,14 @@ function getMutation (req,res){
     
 };
 
+
+function stats (req,res){
+    
+}
+
 module.exports = {
    //pruebas,
    saveMutation,
-   getMutation
+   getMutation,
+   stats
         }

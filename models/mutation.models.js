@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 
 var MutationSchema = Schema ({
                                 combination:[String],
-                                result:[Boolean],
+                                result:Boolean,
                                 });              
 
 module.exports = mongoose.model('Mutation',MutationSchema);
