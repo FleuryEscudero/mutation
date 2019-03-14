@@ -31,9 +31,9 @@ function saveMutation (req,res){
                 res.status(500).send({message: 'La cadena de ADN no ha sido guardada'});
             }else{
                 if(!mutation.result) { // Validamos si la cadena contiene los caracteres correctos y regresa Forbidden
-                    res.status(403).send({message: ''});
+                    res.status(403).send({message: '403-Forbidden'});
                 } else { // Regresa resultado correcto
-                    res.status(200).send({mutation: 'Ok'});
+                    res.status(200).send({mutation: 'HTTP 200-OK'});
                 }
             }
         }
