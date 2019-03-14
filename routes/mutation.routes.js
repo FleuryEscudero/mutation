@@ -11,6 +11,7 @@ api.use(cors());
 //api.get('/pruebas', mutationController.pruebas);
 api.get ('/mutation/:id?', mutationController.getMutation);
 api.post('/mutation',mutationController.saveMutation);
+api.get ('/mutationStats/',mutationController.stats);
 
 
 module.exports = api;

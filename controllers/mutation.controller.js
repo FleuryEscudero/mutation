@@ -1,7 +1,5 @@
 'use strict'
 
-var fs = require ('fs');
-var path = require ('path');
 var Mutation = require('../models/mutation.models');
 var Utils = require('../utils/utils');
 
@@ -33,7 +31,7 @@ function saveMutation (req,res){
                 if(!mutation.result) { // Validamos si la cadena contiene los caracteres correctos y regresa Forbidden
                     res.status(403).send({message: '403-Forbidden'});
                 } else { // Regresa resultado correcto
-                    res.status(200).send({mutation: 'HTTP 200-OK'});
+                    res.status(200).send({message: 'HTTP 200-OK'});
                 }
             }
         }
@@ -55,15 +53,9 @@ function getMutation (req,res){
 };
 
 
-function stats (req,res){
-    Mutation.count({result:true})
-
-
-}
-
 module.exports = {
    //pruebas,
    saveMutation,
    getMutation,
    stats
-        }
+}
